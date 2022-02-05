@@ -6,6 +6,7 @@ const {
   createIdea,
   deleteIdea,
 } = require("../controllers/ideas");
+const checkMillionDollarIdea = require("../checkMillionDollarIdea");
 
 const ideasRouter = express.Router();
 
@@ -13,7 +14,7 @@ const ideasRouter = express.Router();
 ideasRouter.get("/", getAllIdeas);
 
 // Create idea
-ideasRouter.post("/", createIdea);
+ideasRouter.post("/", checkMillionDollarIdea, createIdea);
 
 // Get a single idea
 ideasRouter.get("/:ideaId", getIdeaById);
